@@ -1,0 +1,10 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  <h1>Lista de pedidos</h1>
+  <ul>
+    {% for pedido in pedidos %}
+      <li>{{ pedido.cliente }} - {{ pedido.producto }} - {{ pedido.fecha }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

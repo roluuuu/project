@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://thumbs.dreamstime.com/b/ingenier%C3%ADa-industrial-40849254.jpg" alt="..." /></div>
+    <div class="col-lg-5">
+        <h1 class="font-weight-light">Ingenieria para vos</h1>
+        <p>Somos una compañia de ingenieros, dispuesto a brindarte todos los productos necesarios para vos</p>
+        <a class="btn btn-primary" href="#!">Call to Action!</a>
+    </div>
+</div>
+<!-- Call to Action-->
+<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+</div>
+<!-- Content Row-->
+<div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Productos</h2>
+                <p class="card-text">Tenemos una seleccion de Productos, que podes ver</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'producto:index' %}">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Pedidos</h2>
+                <p class="card-text">Podes ver que pidio la gente, para saber que cosas siguen en stock</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'pedido:index'  %}">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Mira las reseñas de todos nuestros Clientes</h2>
+                <p class="card-text">Nos importa mantener la transparencia con todos nuestros clientes. Si algo no te gusta queremos que nos lo digas, estamos para vos</p>
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'resena:index'  %}">More Info</a></div>
+        </div>
+    </div>
+</div>
+</div>  
+{% endblock  %}
