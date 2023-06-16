@@ -1,10 +1,33 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-  <h1>Lista de productos</h1>
-  <ul>
-    {% for producto in productos %}
-      <li>{{ producto.nombre }} - {{ producto.descripcion }} - ${{ producto.precio }}</li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+  <h1>Producto </h1>
+  
+  {% block content_producto  %}
+    <div class="container">
+      <h3>Categorias</h3>
+    </div >
+    {% if user.is_staff %}
+      <a href="{% url 'producto:productocategoria_create' %}" class="btn btn-primary">Crear Categorias</a>
+      <a href="{% url 'producto:productocategoria_lista' %}" class="btn btn-primary">Ver lista de Categorias</a>
+    {% else %}
+      <a href="{% url 'producto:productocategoria_lista' %}" class="btn btn-primary">Ver lista de categorias</a>
+      {% endif %}
+    
+    <div class="container">
+      <h3>Productos</h3>
+    </div >
+    {% if user.is_staff %}
+      <a href="{% url 'producto:producto_create' %}" class="btn btn-primary">Añadir Productos</a>
+      <a href="{% url 'producto:producto_lista' %}" class="btn btn-primary">Ver lista de Productos	</a>
+    {% else %}
+      <a href="{% url 'producto:producto_lista' %}" class="btn btn-primary">Ver lista de productos</a>
+      {% endif %}
+    {% endblock content_producto %}
+
+
+
+
+
+
+    {% endblock %}

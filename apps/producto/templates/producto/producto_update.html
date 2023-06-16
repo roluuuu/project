@@ -1,0 +1,13 @@
+{% extends 'producto/index.html' %}
+
+{% block content_producto %}
+    <h2>Actualización de Producto</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+
+    {% include 'producto/index_back.html' %}
+{% endblock content_producto %}

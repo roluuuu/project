@@ -1,0 +1,29 @@
+{% extends 'producto/index.html' %}
+
+{% block content_producto %}
+    <h2>Lista de Categorías de productos</h2>
+
+    {% if object_list %}
+        <div class="py-lg-4">
+            <form action="{% url 'producto:productocategoria_lista' %}" method="get">
+                <input type="text" name="consulta" placeholder="Buscar ..." >
+            </form>
+        </div>
+        {% for categoria in object_list %}
+        <ul>
+            <li>{{ categoria.nombre }}</li> 
+            {% if user.is_staff %}
+                <a href="{% url 'producto:productocategoria_update' categoria.id %}" class="btn btn-info">Actualizar</a>
+                <a href="{% url 'producto:productocategoria_delete' categoria.id %}" class="btn btn-danger">Eliminar</a>
+                <a href="{% url 'producto:productocategoria_detail' categoria.id %}" class="btn btn-primary">Ver detalles</a>
+            {% else %}
+                <a href="{% url 'producto:productocategoria_detail' categoria.id %}" class="btn btn-primary">Ver detalles</a>
+            {% endif %}
+        </ul> 
+        {% endfor %}
+    {% else %}
+        <p class="alert alert-info">No hay categorías</p>
+    {% endif %}
+    
+    {% include 'producto/index_back.html' %}
+{% endblock content_producto %}

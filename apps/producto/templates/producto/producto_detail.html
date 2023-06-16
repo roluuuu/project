@@ -1,0 +1,23 @@
+{% extends 'producto/index.html' %}
+
+{% block title %}Detalle de productos{% endblock title %}
+{% block content_producto %}
+    <ul>
+        <li>
+            <p><strong>Nombre: </strong>{{ producto.nombre }}</strong></p>
+            <p><strong>Precio: </strong>{{ producto.precio }}</strong></p>
+            <p><strong>Descripción: </strong>{{ producto.descripcion }}</strong></p>
+            {% if producto.imagen %}
+                <img src="{{ producto.imagen.url }}" alt="imagen" height="200px">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            
+    
+            
+
+        </li>
+    </ul>
+    {% include 'producto/index_back.html' %}
+
+{% endblock content_producto %}

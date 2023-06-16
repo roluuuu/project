@@ -1,0 +1,13 @@
+{% extends 'producto/index.html' %}
+
+{% block content_producto %}
+    <h3>Crear Categorias</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear</button>
+    </form>
+    {% include 'producto/index_back.html' %}
+
+    {% endblock content_producto %}

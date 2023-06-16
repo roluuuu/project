@@ -1,11 +1,27 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block content %}
+
+    {% if user.is_authenticated %}
+        <p>Bienvenido {{user.username}}</p>
+    {% endif %}
+    {% if user.vendedor.avatar.url %}
+        <img src="{{user.vendedor.avatar.url}}" alt="Avatar" style="height: 30px;">
+        
+    {% endif %}
+
+    {% if user.is_staff %}
+        <p><a href="{% url 'admin:index' %}">Administracion </a></p>
+        <p><a href="{% url 'home:register' %}">Registrar nuevos vendedores</a></p>
+        
+    {% endif %}
+
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://thumbs.dreamstime.com/b/ingenier%C3%ADa-industrial-40849254.jpg" alt="..." /></div>
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/Drippysmile.webp' %}" alt="..." /></div>
     <div class="col-lg-5">
-        <h1 class="font-weight-light">Ingenieria para vos</h1>
-        <p>Somos una compañia de ingenieros, dispuesto a brindarte todos los productos necesarios para vos</p>
-        <a class="btn btn-primary" href="#!">Call to Action!</a>
+        <h1 class="font-weight-light">Smile</h1>
+        <p>Elegi lo que quieras, pero siempre Smile </p>
+        <a class="btn btn-primary" href="https://wa.me/549111111111">Contactanos</a>
     </div>
 </div>
 <!-- Call to Action-->

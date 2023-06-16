@@ -5,6 +5,7 @@ from pedido.models import Pedido
 from cliente.models import Cliente
 from producto.models import Producto
 
+
 class Resena(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -15,4 +16,3 @@ class Resena(models.Model):
 
     def __str__(self):
         return f"Reseña de {self.usuario.username} para {self.producto}"
-
